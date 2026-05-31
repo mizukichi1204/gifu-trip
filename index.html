@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岐阜旅行のしおり｜2026.6.6-6.7</title>
+<style>
+  :root{
+    --green:#3a7d44;
+    --green-light:#6aa56f;
+    --cream:#faf6ee;
+    --paper:#fffdf8;
+    --ink:#33372c;
+    --accent:#d98324;
+    --water:#5a9bd4;
+    --line:#e4dccb;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.8;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px 60px;}
+
+  /* 表紙 */
+  .cover{
+    background:linear-gradient(160deg,var(--green) 0%,var(--green-light) 100%);
+    color:#fff;
+    text-align:center;
+    padding:64px 24px 56px;
+    border-radius:0 0 28px 28px;
+    box-shadow:0 6px 20px rgba(58,125,68,.25);
+    position:relative;
+    overflow:hidden;
+  }
+  .cover::after{
+    content:"⛰";
+    position:absolute;
+    font-size:200px;
+    opacity:.08;
+    right:-20px;bottom:-50px;
+  }
+  .cover .sub{letter-spacing:.4em;font-size:.8rem;opacity:.9;margin-bottom:14px;}
+  .cover h1{font-size:2.4rem;letter-spacing:.1em;margin-bottom:10px;font-weight:800;}
+  .cover .date{font-size:1rem;opacity:.95;margin-top:6px;}
+  .cover .members{
+    display:inline-block;
+    margin-top:22px;
+    padding:8px 22px;
+    border:1px solid rgba(255,255,255,.6);
+    border-radius:999px;
+    font-size:.9rem;
+    backdrop-filter:blur(2px);
+  }
+
+  /* セクション見出し */
+  .day-head{
+    display:flex;align-items:center;gap:14px;
+    margin:46px 0 18px;
+  }
+  .day-badge{
+    flex:0 0 auto;
+    width:62px;height:62px;
+    background:var(--accent);
+    color:#fff;border-radius:16px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    box-shadow:0 4px 10px rgba(217,131,36,.3);
+  }
+  .day-badge .d{font-size:.65rem;letter-spacing:.1em;}
+  .day-badge .n{font-size:1.5rem;font-weight:800;line-height:1;}
+  .day-head .t .label{font-size:.75rem;color:var(--accent);letter-spacing:.15em;font-weight:700;}
+  .day-head .t h2{font-size:1.35rem;color:var(--green);}
+
+  /* タイムライン */
+  .timeline{
+    background:var(--paper);
+    border-radius:18px;
+    padding:10px 22px 18px;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
+    border:1px solid var(--line);
+  }
+  .item{
+    position:relative;
+    padding:16px 0 16px 92px;
+    border-bottom:1px dashed var(--line);
+  }
+  .item:last-child{border-bottom:none;}
+  .item .time{
+    position:absolute;left:0;top:18px;
+    font-weight:700;color:var(--green);
+    font-size:.95rem;
+    width:78px;text-align:right;
+  }
+  .item::before{
+    content:"";
+    position:absolute;left:86px;top:22px;
+    width:10px;height:10px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px var(--cream);
+  }
+  .item::after{
+    content:"";
+    position:absolute;left:90px;top:30px;bottom:-16px;
+    width:2px;background:var(--line);
+  }
+  .item:last-child::after{display:none;}
+  .item .title{font-weight:700;font-size:1.02rem;}
+  .item .desc{font-size:.88rem;color:#6b6f5f;margin-top:2px;}
+  .item.move .time{color:var(--water);}
+  .item.move::before{background:var(--water);}
+  .item.move .title{color:#41617e;font-weight:600;}
+  .item.move .title::before{content:"🚄 ";font-size:.9em;}
+  .item.bus .title::before{content:"🚌 ";font-size:.9em;}
+
+  .spots{
+    margin-top:8px;
+    display:flex;flex-wrap:wrap;gap:6px;
+  }
+  .spots span{
+    background:#eef4ea;
+    color:var(--green);
+    font-size:.78rem;
+    padding:3px 10px;border-radius:999px;
+    border:1px solid #d9e7d4;
+  }
+
+  /* 持ち物 */
+  .checklist{
+    background:var(--paper);
+    border-radius:18px;
+    padding:22px 26px;
+    box-shadow:0 2px 12px rgba(0,0,0,.05);
+    border:1px solid var(--line);
+  }
+  .checklist ul{list-style:none;}
+  .checklist li{
+    padding:10px 0;
+    border-bottom:1px dashed var(--line);
+    font-size:1rem;
+    display:flex;align-items:center;gap:12px;
+  }
+  .checklist li:last-child{border-bottom:none;}
+  .checklist li::before{
+    content:"";
+    width:20px;height:20px;
+    border:2px solid var(--green-light);
+    border-radius:5px;
+    flex:0 0 auto;
+  }
+
+  .note{
+    margin-top:14px;
+    background:#fff6e9;
+    border-left:4px solid var(--accent);
+    padding:12px 16px;
+    border-radius:0 10px 10px 0;
+    font-size:.88rem;
+    color:#7a5b2a;
+  }
+
+  footer{
+    text-align:center;
+    margin-top:50px;
+    color:#9a9684;
+    font-size:.8rem;
+  }
+  footer .heart{color:var(--accent);}
+
+  @media print{
+    body{background:#fff;}
+    .cover{box-shadow:none;}
+    .timeline,.checklist{box-shadow:none;}
+  }
+</style>
+</head>
+<body>
+  <header class="cover">
+    <div class="sub">G I F U &nbsp; T R I P</div>
+    <h1>岐阜旅行のしおり</h1>
+    <div class="date">2026年 6月6日（土）〜 6月7日（日）</div>
+    <div class="members">👭 一緒に行く人：あゆ氏</div>
+  </header>
+
+  <div class="wrap">
+
+    <!-- DAY 1 -->
+    <section>
+      <div class="day-head">
+        <div class="day-badge"><span class="d">DAY</span><span class="n">1</span></div>
+        <div class="t">
+          <div class="label">6 / 6 &nbsp;SAT</div>
+          <h2>東京 → 郡上八幡 → 岐阜</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="item move">
+          <div class="time">7:39</div>
+          <div class="title">東京駅 発</div>
+          <div class="desc">のぞみ237号</div>
+        </div>
+        <div class="item move">
+          <div class="time">9:15</div>
+          <div class="title">名古屋駅 着</div>
+        </div>
+        <div class="item move">
+          <div class="time">9:24</div>
+          <div class="title">名古屋駅 発</div>
+          <div class="desc">JR東海道本線</div>
+        </div>
+        <div class="item move">
+          <div class="time">9:43</div>
+          <div class="title">岐阜駅 着</div>
+        </div>
+        <div class="item move bus">
+          <div class="time">10:27</div>
+          <div class="title">岐阜駅 発</div>
+          <div class="desc">高速八幡線</div>
+        </div>
+        <div class="item bus">
+          <div class="time">11:34</div>
+          <div class="title">郡上八幡 城下町プラザ 着</div>
+        </div>
+        <div class="item">
+          <div class="time">12:00</div>
+          <div class="title">新橋亭でランチ 🍽</div>
+          <div class="desc">※予約確認をお忘れなく</div>
+        </div>
+        <div class="item">
+          <div class="time">13:00<br>〜17:00</div>
+          <div class="title">郡上八幡 散策 🚶</div>
+          <div class="spots">
+            <span>やなか水のこみち</span>
+            <span>宗祇水</span>
+            <span>いがわこみち</span>
+            <span>郡上八幡旧庁舎記念館</span>
+            <span>城下町散策</span>
+            <span>カフェ休憩 ☕</span>
+          </div>
+        </div>
+        <div class="item move bus">
+          <div class="time">17:43</div>
+          <div class="title">郡上八幡 発</div>
+          <div class="desc">高速八幡線</div>
+        </div>
+        <div class="item bus">
+          <div class="time">18:50<br>頃</div>
+          <div class="title">岐阜駅 着</div>
+        </div>
+        <div class="item">
+          <div class="time">夜</div>
+          <div class="title">友達と合流 → 夕食 🌃</div>
+          <div class="desc">長良川周辺をお散歩</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DAY 2 -->
+    <section>
+      <div class="day-head">
+        <div class="day-badge"><span class="d">DAY</span><span class="n">2</span></div>
+        <div class="t">
+          <div class="label">6 / 7 &nbsp;SUN</div>
+          <h2>岐阜城・金華山 → 帰京</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div class="item">
+          <div class="time">9:00</div>
+          <div class="title">出発</div>
+        </div>
+        <div class="item">
+          <div class="time">9:30</div>
+          <div class="title">岐阜公園 🌳</div>
+        </div>
+        <div class="item">
+          <div class="time">10:00</div>
+          <div class="title">金華山ロープウェー 🚠</div>
+        </div>
+        <div class="item">
+          <div class="time">10:20<br>〜11:20</div>
+          <div class="title">岐阜城 🏯</div>
+        </div>
+        <div class="item">
+          <div class="time">11:30<br>〜12:15</div>
+          <div class="title">リス村 🐿</div>
+        </div>
+        <div class="item">
+          <div class="time">12:30<br>〜14:00</div>
+          <div class="title">ランチ 🍴</div>
+        </div>
+        <div class="item">
+          <div class="time">14:00<br>〜16:00</div>
+          <div class="title">長良川周辺で のんびり</div>
+          <div class="spots">
+            <span>長良川周辺散策</span>
+            <span>カフェ ☕</span>
+            <span>お土産購入 🎁</span>
+          </div>
+        </div>
+        <div class="item">
+          <div class="time">16:30</div>
+          <div class="title">岐阜駅へ移動</div>
+        </div>
+        <div class="item move">
+          <div class="time">18:00<br>頃</div>
+          <div class="title">岐阜駅 発</div>
+        </div>
+        <div class="item move">
+          <div class="time">20:00<br>頃</div>
+          <div class="title">東京駅 着 🏠</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 持ち物 -->
+    <section>
+      <div class="day-head">
+        <div class="day-badge" style="background:var(--green)"><span class="n">✓</span></div>
+        <div class="t">
+          <div class="label">CHECK LIST</div>
+          <h2>持ち物メモ</h2>
+        </div>
+      </div>
+      <div class="checklist">
+        <ul>
+          <li>スマートEX</li>
+          <li>モバイルバッテリー</li>
+          <li>折りたたみ傘</li>
+          <li>歩きやすい靴</li>
+          <li>飲み物</li>
+          <li>新橋亭 予約確認</li>
+        </ul>
+        <div class="note">
+          💡 1日目・2日目ともによく歩きます。歩きやすい靴と水分補給を忘れずに！梅雨の時期なので折りたたみ傘も必須です。
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      たのしい岐阜旅行になりますように <span class="heart">♡</span><br>
+      with あゆ氏
+    </footer>
+
+  </div>
+</body>
+</html>
