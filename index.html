@@ -44,7 +44,7 @@
     right:-20px;bottom:-50px;
   }
   .cover .sub{letter-spacing:.4em;font-size:.8rem;opacity:.9;margin-bottom:14px;}
-  .cover h1{font-size:2.4rem;letter-spacing:.1em;margin-bottom:10px;font-weight:800;}
+  .cover h1{font-size:clamp(1.6rem,7vw,2.3rem);letter-spacing:.04em;margin-bottom:10px;font-weight:800;white-space:nowrap;}
   .cover .date{font-size:1rem;opacity:.95;margin-top:6px;}
   .cover .members{
     display:inline-block;
@@ -84,26 +84,27 @@
   }
   .item{
     position:relative;
-    padding:16px 0 16px 92px;
+    padding:16px 0 16px 112px;
     border-bottom:1px dashed var(--line);
   }
   .item:last-child{border-bottom:none;}
   .item .time{
     position:absolute;left:0;top:18px;
     font-weight:700;color:var(--green);
-    font-size:.95rem;
-    width:78px;text-align:right;
+    font-size:.9rem;
+    width:84px;text-align:right;
+    white-space:nowrap;
   }
   .item::before{
     content:"";
-    position:absolute;left:86px;top:22px;
+    position:absolute;left:96px;top:24px;
     width:10px;height:10px;border-radius:50%;
     background:var(--accent);
     box-shadow:0 0 0 3px var(--cream);
   }
   .item::after{
     content:"";
-    position:absolute;left:90px;top:30px;bottom:-16px;
+    position:absolute;left:100px;top:32px;bottom:-16px;
     width:2px;background:var(--line);
   }
   .item:last-child::after{display:none;}
@@ -247,7 +248,7 @@
           <div class="desc">高速八幡線</div>
         </div>
         <div class="item bus">
-          <div class="time">18:50<br>頃</div>
+          <div class="time">18:50頃</div>
           <div class="title">岐阜駅 着</div>
         </div>
         <div class="item">
@@ -307,11 +308,11 @@
           <div class="title">岐阜駅へ移動</div>
         </div>
         <div class="item move">
-          <div class="time">18:00<br>頃</div>
+          <div class="time">18:00頃</div>
           <div class="title">岐阜駅 発</div>
         </div>
         <div class="item move">
-          <div class="time">20:00<br>頃</div>
+          <div class="time">20:00頃</div>
           <div class="title">東京駅 着 🏠</div>
         </div>
       </div>
